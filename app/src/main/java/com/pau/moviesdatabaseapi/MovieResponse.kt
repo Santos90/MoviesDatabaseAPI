@@ -2,19 +2,24 @@ package com.pau.moviesdatabaseapi
 
 import com.google.gson.annotations.SerializedName
 data class MovieListResponse(
+    @SerializedName(value="result")
     val result: List<MovieResponse>
 )
 
 data class MovieResponse(
+    @SerializedName(value="primaryImage")
     val primaryImage : PrimaryImage,
+    @SerializedName(value="originalTitleText")
     val originalTitleText: OriginalTitleText
 )
 
 data class PrimaryImage(
+    @SerializedName(value="url")
     val url : String
 )
 
 data class OriginalTitleText(
+    @SerializedName(value="text")
     val text : String
 )
 

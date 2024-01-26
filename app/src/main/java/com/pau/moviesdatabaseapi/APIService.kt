@@ -6,11 +6,18 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 import retrofit2.http.Url
 import okhttp3.Response as ResponseHttp3
 //https://rapidapi.com/SAdrian/api/moviesdatabase/
 
 interface APIService {
+    @GET("random")
+    suspend fun getMovies(@Query("list") lista : String,
+                          @Query("year") anyo : String? = null,
+                          @Query("genre") genero : String? = null
+    ): Response<MovieListResponse>
+
     @GET
     suspend fun getMovies(@Url url: String): Response<MovieListResponse>
 
@@ -37,7 +44,7 @@ fun createApiService(apiKey: String): APIService {
         .build()
 
     val retrofit = Retrofit.Builder()
-        .baseUrl("https://moviesdatabase.p.rapidapi.com") // Reemplaza con la URL de tu API
+        .baseUrl("https://moviesdatabase.p.rapidapi.com/titles/") // Reemplaza con la URL de tu API
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()

@@ -45,6 +45,7 @@ dependencies {
     implementation ("com.squareup.picasso:picasso:$picasso_version")
     implementation ("com.squareup.retrofit2:retrofit:$retrofit_version")
     implementation ("com.squareup.retrofit2:converter-gson:$retrofit_version")//Convertir JSON a objetos Kotlin
+    implementation("com.squareup.retrofit2:adapter-rxjava2:2.9.0")
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
